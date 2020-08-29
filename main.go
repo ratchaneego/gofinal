@@ -111,9 +111,9 @@ func setupRouter() *gin.Engine {
 	r := gin.Default()
 	apiV1 := r.Group("/api/v1")
 	apiV1.Use(authMiddleware)
+	apiV1.GET("/customers", createCustomersHandler)
 	apiV1.GET("/customers", getCustomersHandler)
 	apiV1.GET("/customers/:id", getCustomerByIdHandler)
-	apiV1.POST("/customers", createCustomersHandler)
 	return r
 }
 
